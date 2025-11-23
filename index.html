@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABHA Beauty - تواصل معنا</title>
+    <title>ABHA - Begins Beauty</title>
     <style>
         * {
             margin: 0;
@@ -13,29 +13,50 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a2332 0%, #2d4458 100%);
+            background: linear-gradient(135deg, #0a2342 0%, #1a4d6d 50%, #2d7a9e 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(91, 206, 250, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(91, 206, 250, 0.15) 0%, transparent 50%);
+            animation: drift 15s ease-in-out infinite;
+        }
+
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-50px, -50px); }
         }
 
         .container {
-            max-width: 480px;
+            max-width: 500px;
             width: 100%;
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             border-radius: 30px;
-            padding: 50px 35px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            padding: 50px 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             text-align: center;
-            animation: fadeIn 0.6s ease-out;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 0.8s ease-out;
         }
 
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -44,216 +65,146 @@
         }
 
         .logo-container {
-            margin-bottom: 35px;
-            animation: slideDown 0.8s ease-out;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            margin-bottom: 30px;
+            animation: float 3s ease-in-out infinite;
         }
 
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
 
         .logo {
-            width: 140px;
-            height: 140px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid #5a9fb8;
-            box-shadow: 0 10px 30px rgba(90, 159, 184, 0.4);
+            border: 5px solid #5bcefa;
+            box-shadow: 0 10px 30px rgba(91, 206, 250, 0.4);
             transition: transform 0.3s ease;
-            cursor: pointer;
         }
 
         .logo:hover {
             transform: scale(1.05) rotate(5deg);
         }
 
-        .upload-section {
-            display: inline-block;
-        }
-
-        .upload-label {
-            cursor: pointer;
-        }
-
-        .upload-placeholder {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            border: 5px dashed #5a9fb8;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: rgba(90, 159, 184, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .upload-placeholder:hover {
-            background: rgba(90, 159, 184, 0.15);
-            border-color: #3d7a91;
-            transform: scale(1.05);
-        }
-
-        .upload-placeholder p {
-            margin-top: 10px;
-            color: #5a9fb8;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
         h1 {
-            color: #1a2332;
-            font-size: 36px;
-            margin-bottom: 12px;
+            font-size: 42px;
+            color: #0a2342;
+            margin-bottom: 10px;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: 8px;
         }
 
         .tagline {
-            color: #5a9fb8;
-            font-size: 20px;
-            margin-bottom: 45px;
+            font-size: 18px;
+            color: #2d7a9e;
+            margin-bottom: 40px;
             font-weight: 300;
-            font-style: italic;
+            letter-spacing: 2px;
         }
 
-        .links {
+        .buttons {
             display: flex;
             flex-direction: column;
-            gap: 18px;
+            gap: 20px;
         }
 
-        .link-button {
+        .btn {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 15px;
-            padding: 20px 35px;
-            background: white;
-            border: 2px solid #e8e8e8;
-            border-radius: 16px;
+            padding: 18px 30px;
+            border-radius: 15px;
             text-decoration: none;
-            color: #1a2332;
-            font-size: 19px;
+            font-size: 18px;
             font-weight: 600;
             transition: all 0.3s ease;
-            cursor: pointer;
             position: relative;
             overflow: hidden;
         }
 
-        .link-button::before {
+        .btn::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(90, 159, 184, 0.1), transparent);
-            transition: left 0.5s ease;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
         }
 
-        .link-button:hover::before {
-            left: 100%;
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
-        .link-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        .btn span {
+            position: relative;
+            z-index: 1;
         }
 
-        .link-button:active {
-            transform: translateY(-2px);
-        }
-
-        .link-button.website {
-            background: linear-gradient(135deg, #5a9fb8 0%, #3d7a91 100%);
+        .btn-website {
+            background: linear-gradient(135deg, #5bcefa 0%, #2d7a9e 100%);
             color: white;
-            border: none;
-            box-shadow: 0 5px 20px rgba(90, 159, 184, 0.3);
+            box-shadow: 0 5px 20px rgba(91, 206, 250, 0.4);
         }
 
-        .link-button.website:hover {
-            box-shadow: 0 8px 30px rgba(90, 159, 184, 0.5);
+        .btn-website:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(91, 206, 250, 0.6);
         }
 
-        .link-button.whatsapp {
-            border-color: #e8e8e8;
-        }
-
-        .link-button.whatsapp:hover {
-            border-color: #25D366;
+        .btn-whatsapp {
             background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
             color: white;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
         }
 
-        .link-button.whatsapp:hover .icon path {
-            fill: white;
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
         }
 
-        .link-button.facebook {
-            border-color: #e8e8e8;
-        }
-
-        .link-button.facebook:hover {
-            border-color: #1877F2;
-            background: linear-gradient(135deg, #1877F2 0%, #0d5dbf 100%);
+        .btn-facebook {
+            background: linear-gradient(135deg, #1877F2 0%, #0e5fc7 100%);
             color: white;
+            box-shadow: 0 5px 20px rgba(24, 119, 242, 0.4);
         }
 
-        .link-button.facebook:hover .icon path {
-            fill: white;
+        .btn-facebook:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(24, 119, 242, 0.6);
         }
 
         .icon {
-            width: 30px;
-            height: 30px;
-            transition: all 0.3s ease;
-        }
-
-        .link-button:hover .icon {
-            transform: scale(1.1);
-        }
-
-        .footer {
-            margin-top: 40px;
-            padding-top: 25px;
-            border-top: 2px solid #e8e8e8;
-            color: #999;
-            font-size: 14px;
+            width: 28px;
+            height: 28px;
+            position: relative;
+            z-index: 1;
         }
 
         @media (max-width: 480px) {
             .container {
-                padding: 40px 25px;
+                padding: 40px 20px;
             }
 
             h1 {
-                font-size: 30px;
+                font-size: 36px;
+                letter-spacing: 6px;
             }
 
             .tagline {
-                font-size: 18px;
+                font-size: 16px;
             }
 
-            .link-button {
-                padding: 18px 30px;
-                font-size: 17px;
-            }
-
-            .logo {
-                width: 120px;
-                height: 120px;
+            .btn {
+                font-size: 16px;
+                padding: 16px 25px;
             }
         }
     </style>
@@ -261,102 +212,46 @@
 <body>
     <div class="container">
         <div class="logo-container">
-            <img src="" class="logo" alt="ABHA Beauty Logo" id="logoImg" style="display: none;">
-            <div class="upload-section">
-                <label for="logoUpload" class="upload-label">
-                    <div class="upload-placeholder">
-                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM17 13H13V17H11V13H7V11H11V7H13V11H17V13Z" fill="#5a9fb8"/>
-                        </svg>
-                        <p>انقر لتحميل الشعار</p>
-                    </div>
-                </label>
-                <input type="file" id="logoUpload" accept="image/*" style="display: none;">
-            </div>
+            <img src="Abha.jpg" alt="ABHA Logo" class="logo" id="logo">
         </div>
-
-        <h1>ABHA Beauty</h1>
-        <p class="tagline">Begins beauty</p>
-
-        <div class="links">
-            <a href="https://abha-beauty.wuiltstore.com/ar" class="link-button website" target="_blank">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM11 19.93C7.05 19.44 4 16.08 4 12C4 11.38 4.08 10.79 4.21 10.21L9 15V16C9 17.1 9.9 18 11 18V19.93ZM17.9 17.39C17.64 16.58 16.9 16 16 16H15V13C15 12.45 14.55 12 14 12H8V10H10C10.55 10 11 9.55 11 9V7H13C14.1 7 15 6.1 15 5V4.59C17.93 5.78 20 8.65 20 12C20 14.08 19.2 15.97 17.9 17.39Z" fill="white"/>
+        
+        <h1>ABHA</h1>
+        <p class="tagline">Begins Beauty</p>
+        
+        <div class="buttons">
+            <a href="https://abha-beauty.wuiltstore.com/ar" class="btn btn-website">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
                 </svg>
-                <span>زيارة الموقع</span>
+                <span>زيارة المتجر</span>
             </a>
-
-            <a href="https://wa.me/qr/PTZU3T2L7UJ5K1" class="link-button whatsapp" target="_blank">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17.472 14.382C17.015 14.155 14.765 13.042 14.355 12.893C13.945 12.744 13.651 12.669 13.357 13.126C13.063 13.583 12.171 14.627 11.914 14.921C11.657 15.215 11.4 15.253 10.943 15.026C10.486 14.799 8.99 14.302 7.232 12.731C5.856 11.507 4.934 9.99 4.677 9.533C4.42 9.076 4.649 8.837 4.876 8.61C5.08 8.406 5.333 8.074 5.56 7.817C5.787 7.56 5.862 7.379 6.011 7.085C6.16 6.791 6.085 6.534 5.972 6.307C5.859 6.08 4.937 3.83 4.565 2.916C4.193 2.002 3.821 2.116 3.565 2.116C3.309 2.116 3.015 2.116 2.721 2.116C2.427 2.116 1.932 2.229 1.522 2.686C1.112 3.143 0 4.218 0 6.468C0 8.718 1.56 10.892 1.787 11.186C2.014 11.48 4.937 15.89 9.395 17.88C13.853 19.87 13.853 19.223 14.765 19.148C15.677 19.073 17.547 18.074 17.919 17.037C18.291 16 18.291 15.115 18.178 14.921C18.065 14.727 17.929 14.609 17.472 14.382ZM12.038 21.846C10.067 21.846 8.135 21.295 6.459 20.253L2 21.846L3.632 17.538C2.496 15.785 1.893 13.746 1.893 11.632C1.893 5.749 6.681 1 12.038 1C17.395 1 22.183 5.749 22.183 11.632C22.183 17.515 17.395 21.846 12.038 21.846Z" fill="#25D366"/>
+            
+            <a href="https://wa.me/qr/PTZU3T2L7UJ5K1" class="btn btn-whatsapp">
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
                 </svg>
                 <span>تواصل واتساب</span>
             </a>
-
-            <a href="https://www.facebook.com/profile.php?id=61566874201132" class="link-button facebook" target="_blank">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M24 12C24 5.37 18.63 0 12 0C5.37 0 0 5.37 0 12C0 17.99 4.39 22.95 10.13 23.88V15.47H7.08V12H10.13V9.36C10.13 6.35 11.92 4.69 14.66 4.69C15.97 4.69 17.34 4.92 17.34 4.92V7.87H15.83C14.33 7.87 13.87 8.79 13.87 9.73V12H17.2L16.67 15.47H13.87V23.88C19.61 22.95 24 17.99 24 12Z" fill="#1877F2"/>
+            
+            <a href="https://www.facebook.com/profile.php?id=61566874201132" class="btn btn-facebook">
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                 </svg>
                 <span>تابعنا على فيسبوك</span>
             </a>
         </div>
-
-        <div class="footer">
-            © 2024 ABHA Beauty. All rights reserved.
-        </div>
     </div>
 
     <script>
-        // Handle logo upload
-        const logoUpload = document.getElementById('logoUpload');
-        const logoImg = document.getElementById('logoImg');
-        const uploadSection = document.querySelector('.upload-section');
-
-        logoUpload.addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(event) {
-                    const img = new Image();
-                    img.onload = function() {
-                        // Create canvas for circular crop
-                        const canvas = document.createElement('canvas');
-                        const size = Math.max(img.width, img.height);
-                        canvas.width = size;
-                        canvas.height = size;
-                        
-                        const ctx = canvas.getContext('2d');
-                        
-                        // Fill background
-                        ctx.fillStyle = 'transparent';
-                        ctx.fillRect(0, 0, size, size);
-                        
-                        // Draw circular clip
-                        ctx.beginPath();
-                        ctx.arc(size/2, size/2, size/2, 0, Math.PI * 2);
-                        ctx.closePath();
-                        ctx.clip();
-                        
-                        // Draw image centered
-                        const offsetX = (size - img.width) / 2;
-                        const offsetY = (size - img.height) / 2;
-                        ctx.drawImage(img, offsetX, offsetY, img.width, img.height);
-                        
-                        // Set as logo and show it
-                        logoImg.src = canvas.toDataURL();
-                        logoImg.style.display = 'block';
-                        uploadSection.style.display = 'none';
-                    };
-                    img.src = event.target.result;
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-
-        // Allow clicking logo to change it
-        logoImg.addEventListener('click', function() {
-            logoUpload.click();
-        });
+        // Replace placeholder with actual logo
+        const logo = document.getElementById('logo');
+        // You'll need to upload your logo and replace this URL
+        // For now, it will show a broken image until you add your logo URL
+        logo.onerror = function() {
+            this.style.display = 'none';
+        };
     </script>
 </body>
 </html>
